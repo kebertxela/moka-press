@@ -7,12 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.4">
   <style>
     .liner{display:flex;align-items:flex-start;text-align:left}
-    .liner:after{content:"";flex-grow:1;height:1px;background:linear-gradient(90deg,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 30%,rgba(0,0,0,1) 60%,rgba(255,255,255,0) 100%);min-width:20px;margin:auto;margin-left:20px}
+    .liner:after{content:"";flex-grow:1;height:1px;background:linear-gradient(90deg,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,1) 70%,rgba(255,255,255,0) 100%);min-width:20px;margin:auto;margin-left:20px}
     .liner:before{content:"";flex-grow:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(0,0,0,1) 30%,rgba(0,0,0,1) 60%,rgba(0,0,0,1) 100%);min-width:20px;margin:auto;margin-right:20px}
     .hr{display:flex;align-items:flex-start;text-align:left}
-    .hr:after{content:"";flex-grow:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,1) 80%,rgba(255,255,255,0) 100%);margin-left:20px}
-    body{padding:50px;background-color:#8d7147;color:#000;line-height:170%;font-family:Georgia,Times,Times New Roman,serif;padding-top:40px}
-    body .container{width:80%;margin:0 auto}
+    .hr:after{content:"";flex-grow:1;height:1px;background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 20%, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 80%, rgba(255,255,255,0) 100%);margin-left:20px}
+    body{padding:50px;background-color:#8d7147;color:#000;line-height:170%;font-family:Georgia,Times,Times New Roman,serif;padding-top:40px;display: block;position: relative;margin: auto}
+    body .container{width:80%;margin:0 auto;}
+    body::after {
+      content: "";
+      opacity: 0.7;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+    }
     body .container .nest{width:50%;margin:40px auto;border:solid 1px;padding:20px}
     h1,h2,h3{color:#3A2306;text-transform:uppercase;font-size:400%}
     hr{border:0;margin:1em auto;max-width:100%;background-position:50%;box-sizing:border-box}
@@ -20,9 +31,26 @@
   </style>
   <body>
     <div class="container">
+      <hr class="hr" />
       <h1 class="liner">Moka Press</h1>
-      <p class="liner" id="time">
-      </p>
+      <p class="liner" id="time">Someday Midnoonish, Zeusember 77, 1337</p>
+      <hr class="hr">
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit aliquet sagittis id consectetur. Purus in massa tempor nec. Et malesuada fames ac turpis egestas maecenas pharetra convallis. Praesent semper feugiat nibh sed. Faucibus ornare suspendisse sed nisi lacus. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Egestas dui id ornare arcu odio. Arcu felis bibendum ut tristique et egestas quis ipsum. Aliquet enim tortor at auctor urna nunc id cursus.</p>
+
+      <p>Sagittis eu volutpat odio facilisis. Mattis aliquam faucibus purus in massa. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Sapien pellentesque habitant morbi tristique senectus et netus et malesuada. Mattis pellentesque id nibh tortor id aliquet lectus proin nibh. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Laoreet sit amet cursus sit amet dictum sit amet. Ac tincidunt vitae semper quis lectus. Egestas dui id ornare arcu odio ut. Tempor nec feugiat nisl pretium. Amet mattis vulputate enim nulla aliquet porttitor. Malesuada bibendum arcu vitae elementum curabitur. Nullam vehicula ipsum a arcu. In hendrerit gravida rutrum quisque non tellus orci ac. Blandit massa enim nec dui nunc mattis. Diam quis enim lobortis scelerisque fermentum dui faucibus.</p>
+
+      <p>Nulla facilisi nullam vehicula ipsum a arcu cursus. Quis eleifend quam adipiscing vitae proin sagittis. Urna id volutpat lacus laoreet non curabitur. Egestas erat imperdiet sed euismod nisi porta lorem. Dui id ornare arcu odio ut sem nulla pharetra. Velit euismod in pellentesque massa. Odio facilisis mauris sit amet. Fringilla urna porttitor rhoncus dolor purus non enim. Massa tincidunt dui ut ornare lectus sit amet est. Imperdiet proin fermentum leo vel orci porta non pulvinar. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus. A diam maecenas sed enim ut sem viverra. Vitae auctor eu augue ut lectus arcu. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra.</p>
+
+      <p>Orci dapibus ultrices in iaculis nunc sed augue lacus. Egestas pretium aenean pharetra magna ac placerat. At consectetur lorem donec massa. At elementum eu facilisis sed. Aliquet nec ullamcorper sit amet risus nullam eget. Quam pellentesque nec nam aliquam sem et tortor. Posuere ac ut consequat semper. Nibh nisl condimentum id venenatis a condimentum. Ac turpis egestas integer eget. Faucibus pulvinar elementum integer enim neque volutpat. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Volutpat blandit aliquam etiam erat. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor.</p>
+
+      <p>Viverra nibh cras pulvinar mattis nunc sed blandit. Et malesuada fames ac turpis egestas integer. Scelerisque fermentum dui faucibus in ornare quam viverra. Dignissim diam quis enim lobortis. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Euismod lacinia at quis risus sed vulputate. Cursus turpis massa tincidunt dui ut ornare lectus sit. Elit ut aliquam purus sit amet luctus venenatis lectus. Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Leo vel orci porta non pulvinar neque. Auctor urna nunc id cursus metus. Nec tincidunt praesent semper feugiat nibh. Aliquam malesuada bibendum arcu vitae elementum curabitur. Tincidunt tortor aliquam nulla facilisi cras. Eu ultrices vitae auctor eu augue ut lectus arcu bibendum. Amet aliquam id diam maecenas ultricies mi.</p>
+
+      <p>Vitae sapien pellentesque habitant morbi tristique senectus et. Pretium lectus quam id leo. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Amet est placerat in egestas erat imperdiet sed euismod. Amet commodo nulla facilisi nullam vehicula. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Tincidunt augue interdum velit euismod. Placerat vestibulum lectus mauris ultrices eros in cursus. In fermentum posuere urna nec tincidunt praesent semper. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Eget nunc lobortis mattis aliquam faucibus. Purus viverra accumsan in nisl nisi. Odio ut enim blandit volutpat maecenas. Urna duis convallis convallis tellus id interdum velit.</p>
+
+      <p>Est lorem ipsum dolor sit amet consectetur adipiscing elit. Sodales neque sodales ut etiam sit amet nisl purus in. Risus ultricies tristique nulla aliquet enim tortor at auctor. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Nunc lobortis mattis aliquam faucibus purus in massa tempor. Aliquam eleifend mi in nulla. Malesuada nunc vel risus commodo. At varius vel pharetra vel turpis. Fermentum odio eu feugiat pretium. Quisque id diam vel quam elementum pulvinar etiam non. Fringilla phasellus faucibus scelerisque eleifend donec. Sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit. Justo laoreet sit amet cursus sit amet dictum sit. Elit eget gravida cum sociis natoque penatibus et magnis. Arcu non odio euismod lacinia at quis risus. Amet venenatis urna cursus eget nunc scelerisque. Sed risus ultricies tristique nulla aliquet enim tortor.</p>
+
+      <p>Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Commodo elit at imperdiet dui accumsan sit amet nulla facilisi. Leo a diam sollicitudin tempor id eu nisl nunc. Fermentum leo vel orci porta non pulvinar neque laoreet. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Sed libero enim sed faucibus turpis in eu mi. Ac auctor augue mauris augue neque gravida in fermentum et. Molestie ac feugiat sed lectus vestibulum mattis. Vestibulum lorem sed risus ultricies tristique.</p>
     </div>
   </body>
   <script>
